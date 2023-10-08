@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const todosplices=createSlice({
+export const todoslices=createSlice({
     name:'todo',
-    initialState:{
-        todo:[
+    initialState:[
             {
                task : "learn react redux",
                status:true
@@ -13,16 +12,15 @@ export const todosplices=createSlice({
                 status:false
             }
         ],
-        count:0,
-    },
+        
+    
     reducers:{
       add:(state,action)=>{
         state.todo.push(action.payload)
 
       },
-      toggle:(state,action)=>{
-
-      }
+     
     }
 })
-export const {add,toggle} = todosplices.actions
+export const {add} = todoslices.actions
+export default todoslices.reducer
