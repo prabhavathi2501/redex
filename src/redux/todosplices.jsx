@@ -4,19 +4,19 @@ export const todoslices=createSlice({
     name:'todo',
     initialState:[
             {
-               task : "learn react redux",
-               status:true
+               task : "",
+               discription:""
             },
             {
-                task:"impeliment react redux",
-                status:false
+                task:"",
+                discription:""
             }
         ],
         
     
     reducers:{
       add:(state,action)=>{
-        state.todo.push(action.payload)
+        state.push(action.payload)
 
       },
      

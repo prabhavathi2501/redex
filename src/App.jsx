@@ -1,20 +1,32 @@
 import { Form}from 'react-bootstrap'
+import {useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useSelector,useDispatch } from 'react-redux'
+import { add } from './redux/todosplices'
 
 function App() {
   let todo = useSelector((state)=>state.todo)
-  console.log(todo)
+ let[task,setTask] = useState("")
+ let [Discription,setDiscription] = useState("")
+ let dispatch = useDispatch()
+
+ const crateTask = ()=>{
+  let payload = {
+    task,
+    Discription,
+}
+dispatch(add(payload))
+ }
  return<>
  <div className='container-fluid'>
   <div className='row'>
     <div className='col-2'>
-      <h1>Notes App</h1>
+      <h3 className='sidebar'>Notes App</h3>
     <br/>
-    <h3>Notes</h3>
+    <h3 className='sidebar Notes bg-gradient-primary'>  Notes</h3>
     </div>
-    <div className='col-10'>
+    <div className='col-10 notes'>
  <div className='bg-light  mx-8 mt-3 mb-2 static-top shadow py-2 px-3 border-radius:4px'>
 
  <Form.Group className="mb-3 ">
@@ -27,7 +39,7 @@ function App() {
                 <Form.Label><h2 className='text-muted'>Take a Notes</h2></Form.Label>
                 <Form.Control type="text"  placeholder="Enter your Notes"onChange={(e)=>setDiscription(e.target.value)} />
               </Form.Group>
-              <Button variant="primary" type='submit'>clcik</Button>
+              <Button variant="primary" type='submit' onClick={()=>crateTask()}>clcik</Button>
   
 </div>
 <h3>My Notes</h3>
@@ -70,6 +82,24 @@ function App() {
       </Card.Body>
     </Card>
     </div>
+    <div className='todo'>
+    {
+    todo.map((e,i)=>{
+      
+      return <div  key = {i}>
+        
+        <h1>{e.task}</h1>
+        <p>{e.Discription}</p>
+       
+       
+        </div>
+       
+    })
+   }
+    </div>
+
+
+
     </div>
 
  </div>
