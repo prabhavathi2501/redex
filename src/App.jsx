@@ -27,7 +27,7 @@ dispatch(add(payload))
     <h3 className='sidebar Notes bg-gradient-primary'>  Notes</h3>
     </div>
     <div className='col-10 notes'>
- <div className='bg-light  mx-8 mt-3 mb-2 static-top shadow py-2 px-3 border-radius:4px'>
+ <div className='bg-light form mx-5 mt-3 mb-2 static-top shadow py-2 px-3 border-radius:4px'>
 
  <Form.Group className="mb-3 ">
     <h1 className='text-muted'>Add a Notes</h1>
