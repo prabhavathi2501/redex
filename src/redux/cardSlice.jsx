@@ -25,12 +25,13 @@ export const cardnoteSlice = createSlice({
       state.notes.push({ ...action.payload, isSelected: false });
     },
     del: (state, action) => {
-      console.log(state);
-      console.log(action.payload, action.type);
+      // console.log(state);
+      // console.log(action.payload, action.type);
       state.notes.splice(action.payload, 1);
     },
     edit: (state, action) => {
       state.selectedIndex = action.payload
+      // state.notes
     },
   },
 });

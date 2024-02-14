@@ -14,12 +14,14 @@ function AddNote() {
     const [saveButton, setSaveButton] = useState("Save");
 
     useEffect(() => {
-        console.log('noteslist', notesObj)
+        // console.log('noteslist', notesObj)
 
         if (notesObj.selectedIndex > -1 &&
             notesObj.notes.length > notesObj.selectedIndex) {
             setTitle(notesObj.notes[notesObj.selectedIndex].title);
             setBodyText(notesObj.notes[notesObj.selectedIndex].bodyText);
+            setAddNote("Edit the Notes");
+            setSaveButton("Update");
         } else {
             setTitle('')
             setBodyText('')
@@ -27,7 +29,7 @@ function AddNote() {
 
     }, [notesObj])
 
-
+  
 
     return (
         <>
